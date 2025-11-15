@@ -11,6 +11,7 @@ import DvcContractsPage from './pages/DvcContractsPage';
 import DvcUseYearsPage from './pages/DvcUseYearsPage';
 import DvcScenariosPage from './pages/DvcScenariosPage';
 import NotFoundPage from './pages/NotFoundPage';
+import TripPrintPage from './pages/TripPrintPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: '/trips/:tripId', element: <TripDashboardPage /> },
       { path: '/trips/:tripId/day/:dayId', element: <TripDayPlannerPage /> },
       { path: '/trips/:tripId/budget', element: <TripBudgetPage /> },
+      { path: '/trips/:tripId/print', element: <TripPrintPage /> },
       { path: '/dvc', element: <DvcOverviewPage /> },
       { path: '/dvc/contracts', element: <DvcContractsPage /> },
       { path: '/dvc/use-years', element: <DvcUseYearsPage /> },

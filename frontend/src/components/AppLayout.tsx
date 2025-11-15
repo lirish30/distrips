@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { trips } from '../data/sampleData';
 import { formatDateRange } from '../utils/date';
@@ -42,10 +42,20 @@ const resolvePageTitle = (pathname: string) => {
 const AppLayout = () => {
   const location = useLocation();
   const pageTitle = useMemo(() => resolvePageTitle(location.pathname), [location.pathname]);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const closeNav = () => setMobileNavOpen(false);
 
   return (
-    <div className="app-shell">
-      <aside className="sidebar">
+    <div className={`app-shell ${mobileNavOpen ? 'nav-open' : ''}`}>
+      <button
+        type="button"
+        className="mobile-nav-toggle"
+        aria-label="Toggle navigation"
+        onClick={() => setMobileNavOpen((prev) => !prev)}
+      >
+        ☰
+      </button>
+      <aside className="sidebar" aria-label="Primary navigation">
         <div className="brand">
           <span role="img" aria-label="castle">
             🏰
@@ -55,7 +65,11 @@ const AppLayout = () => {
         <div className="nav-section trips-section">
           <p className="sidebar-heading">Trips</p>
           <div className="trip-list">
-            <NavLink to="/trips" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink
+              to="/trips"
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+              onClick={closeNav}
+            >
               All Trips
             </NavLink>
             {trips.map((trip) => (
@@ -63,6 +77,7 @@ const AppLayout = () => {
                 key={trip.id}
                 to={`/trips/${trip.id}`}
                 className={({ isActive }) => (isActive ? 'nav-link trip-link active' : 'nav-link trip-link')}
+                onClick={closeNav}
               >
                 <span className="trip-link__name">{trip.name}</span>
                 <span className="trip-link__dates">{formatDateRange(trip.startDate, trip.endDate)}</span>
@@ -76,17 +91,23 @@ const AppLayout = () => {
         <div className="nav-section">
           <p className="sidebar-heading">Pro · DVC</p>
           {dvcNavLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+              onClick={closeNav}
+            >
               {link.label}
             </NavLink>
           ))}
         </div>
         <div className="nav-footer">
-          <NavLink to="/login" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+          <NavLink to="/login" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} onClick={closeNav}>
             Logout
           </NavLink>
         </div>
       </aside>
+      <div className={`nav-overlay ${mobileNavOpen ? 'visible' : ''}`} onClick={closeNav} aria-hidden={!mobileNavOpen} />
       <main className="main-panel">
         <header className="top-bar">
           <div className="page-title">

@@ -61,6 +61,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .ghost {
@@ -70,10 +71,25 @@ p {
   font-weight: 600;
   background: #ffffff;
   color: #14213d;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .ghost:hover {
   border-color: #14213d;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.primary:hover {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
+}
+
+.primary:focus-visible,
+.ghost:focus-visible,
+.nav-link:focus-visible,
+.mobile-nav-toggle:focus-visible,
+.activity-card__body:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .container {

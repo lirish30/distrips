@@ -46,6 +46,13 @@ type ReservationEntry = {
   credits?: number;
 };
 
+type InviteRole = 'viewer' | 'editor';
+type InviteEntry = {
+  id: string;
+  email: string;
+  role: InviteRole;
+};
+
 const TripDashboardPage = () => {
   const { tripId } = useParams();
   const trip = trips.find((item) => item.id === tripId) ?? trips[0];
@@ -190,6 +197,8 @@ const TripDashboardPage = () => {
     serviceType: undefined as ServiceType | undefined,
     credits: 0
   });
+  const [invites, setInvites] = useState<InviteEntry[]>([]);
+  const [inviteForm, setInviteForm] = useState<{ email: string; role: InviteRole }>({ email: '', role: 'viewer' });
 
   const openReservationModal = () => {
     setReservationForm({
@@ -249,6 +258,12 @@ const TripDashboardPage = () => {
     ]);
     closeReservationModal();
   };
+  const handleInviteSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!inviteForm.email.trim()) return;
+    setInvites((prev) => [...prev, { id: `invite-${Date.now()}`, email: inviteForm.email.trim(), role: inviteForm.role }]);
+    setInviteForm({ email: '', role: 'viewer' });
+  };
 
   const pendingReservationCredits = trip.diningPlan?.enabled ? reservationForm.credits ?? 0 : 0;
   const projectedRemainingCredits =
@@ -266,6 +281,11 @@ const TripDashboardPage = () => {
           </div>
           <div className="trip-hero__countdown">
             <span>{countdownLabel}</span>
+          </div>
+          <div className="trip-hero__actions">
+            <Link to={`/trips/${trip.id}/print`} className="ghost">
+              Printable itinerary
+            </Link>
           </div>
         </div>
         <div className="trip-hero__image">
@@ -467,6 +487,54 @@ const TripDashboardPage = () => {
             )}
           </section>
         )}
+        <section className="card">
+          <div className="trip-card__header">
+            <div>
+              <h2>Sharing</h2>
+              <p>Invite family members to view or edit this trip.</p>
+            </div>
+          </div>
+          <form className="sharing-form" onSubmit={handleInviteSubmit}>
+            <label>
+              <span>Email</span>
+              <input
+                type="email"
+                value={inviteForm.email}
+                onChange={(event) => setInviteForm((prev) => ({ ...prev, email: event.target.value }))}
+                placeholder="Guest email"
+                required
+              />
+            </label>
+            <label>
+              <span>Role</span>
+              <select value={inviteForm.role} onChange={(event) => setInviteForm((prev) => ({ ...prev, role: event.target.value as InviteRole }))}>
+                <option value="viewer">Viewer</option>
+                <option value="editor">Editor</option>
+              </select>
+            </label>
+            <button type="submit" className="primary">
+              Send invite
+            </button>
+          </form>
+          {invites.length > 0 && (
+            <table className="sharing-table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {invites.map((invite) => (
+                  <tr key={invite.id}>
+                    <td>{invite.email}</td>
+                    <td>{invite.role === 'viewer' ? 'Viewer' : 'Editor'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </section>
 
         <section className="card logistics-card">
           <div className="trip-card__header">

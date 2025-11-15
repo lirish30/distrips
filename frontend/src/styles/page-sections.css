@@ -98,6 +98,12 @@
   align-self: flex-start;
 }
 
+.trip-hero__actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
 .trip-hero__image {
   flex: 0 0 320px;
   height: 200px;
@@ -782,6 +788,30 @@
   color: #111827;
 }
 
+@media (max-width: 880px) {
+  .day-planner {
+    flex-direction: column;
+  }
+
+  .time-blocks__item {
+    flex-direction: column;
+  }
+
+  .time-blocks__track--column {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: auto;
+  }
+
+  .time-blocks__connector--column {
+    display: none;
+  }
+
+  .day-overview-card {
+    width: 100%;
+  }
+}
+
 .activity-card {
   border-bottom: 1px solid rgba(20, 33, 61, 0.08);
   padding: 0.35rem 0;
@@ -893,4 +923,48 @@
 .linked-trips td {
   padding: 0.35rem 0;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sharing-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.sharing-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.sharing-form input,
+.sharing-form select {
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.8rem;
+  font: inherit;
+}
+
+.sharing-form button {
+  justify-self: start;
+}
+
+.sharing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sharing-table th,
+.sharing-table td {
+  text-align: left;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sharing-table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
 }
