@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sdmt",
+    "name": "Seven Dwarfs Mine Train",
+    "park": "MK",
+    "geniePlus": true,
+    "heightRequirement": "38\""
+  },
+  {
+    "id": "tron",
+    "name": "TRON Lightcycle / Run",
+    "park": "MK",
+    "geniePlus": true,
+    "heightRequirement": "48\""
+  },
+  {
+    "id": "slinky",
+    "name": "Slinky Dog Dash",
+    "park": "HS",
+    "geniePlus": true,
+    "heightRequirement": "38\""
+  },
+  {
+    "id": "rise",
+    "name": "Star Wars: Rise of the Resistance",
+    "park": "HS",
+    "geniePlus": false,
+    "heightRequirement": "40\""
+  },
+  {
+    "id": "flight-pass",
+    "name": "Avatar Flight of Passage",
+    "park": "AK",
+    "geniePlus": true,
+    "heightRequirement": "44\""
+  },
+  {
+    "id": "everest",
+    "name": "Expedition Everest",
+    "park": "AK",
+    "geniePlus": true,
+    "heightRequirement": "44\""
+  },
+  {
+    "id": "test-track",
+    "name": "Test Track",
+    "park": "EPCOT",
+    "geniePlus": true,
+    "heightRequirement": "40\""
+  },
+  {
+    "id": "soarin",
+    "name": "Soarin' Around the World",
+    "park": "EPCOT",
+    "geniePlus": true,
+    "heightRequirement": "40\""
+  }
+]

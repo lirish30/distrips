@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cinderella-royal-table",
+    "name": "Cinderella's Royal Table",
+    "serviceType": "TABLE",
+    "location": "Magic Kingdom"
+  },
+  {
+    "id": "be-our-guest",
+    "name": "Be Our Guest Restaurant",
+    "serviceType": "TABLE",
+    "location": "Magic Kingdom"
+  },
+  {
+    "id": "ohana",
+    "name": "'Ohana",
+    "serviceType": "TABLE",
+    "location": "Disney's Polynesian Village Resort"
+  },
+  {
+    "id": "sanaa",
+    "name": "Sanaa",
+    "serviceType": "TABLE",
+    "location": "Disney's Animal Kingdom Lodge"
+  },
+  {
+    "id": "cosmic-ray",
+    "name": "Cosmic Ray's Starlight Cafe",
+    "serviceType": "QUICK",
+    "location": "Magic Kingdom"
+  },
+  {
+    "id": "satuli-canteen",
+    "name": "Satu'li Canteen",
+    "serviceType": "QUICK",
+    "location": "Disney's Animal Kingdom"
+  }
+]

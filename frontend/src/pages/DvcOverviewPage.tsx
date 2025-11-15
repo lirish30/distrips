@@ -1,4 +1,5 @@
 import { dvcContracts, dvcScenarios, dvcUseYears } from '../data/sampleData';
+import { formatDate } from '../utils/date';
 import '../styles/page-sections.css';
 
 const DvcOverviewPage = () => {
@@ -46,7 +47,7 @@ const DvcOverviewPage = () => {
                 <td>{year.startingPoints}</td>
                 <td>{year.pointsAllocated}</td>
                 <td>{year.pointsRemaining}</td>
-                <td>{year.bankingDeadline}</td>
+                <td>{formatDate(year.bankingDeadline)}</td>
               </tr>
             ))}
           </tbody>

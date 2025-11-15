@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { trips } from '../data/sampleData';
+import { formatDateRange } from '../utils/date';
 import '../styles/page-sections.css';
 
 const TripsPage = () => {
@@ -10,9 +11,7 @@ const TripsPage = () => {
           <div className="trip-card__header">
             <div>
               <h2>{trip.name}</h2>
-              <p>
-                {trip.startDate} → {trip.endDate}
-              </p>
+              <p>{formatDateRange(trip.startDate, trip.endDate)}</p>
             </div>
             <span className="trip-card__badge">{trip.parkDays.length} days</span>
           </div>

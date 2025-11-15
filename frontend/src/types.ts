@@ -1,5 +1,5 @@
 export type ParkCode = 'MK' | 'EPCOT' | 'HS' | 'AK' | 'OFFSITE' | 'UNSET';
-export type TimeBlockLabel = 'MORNING' | 'AFTERNOON' | 'EVENING' | 'NIGHT';
+export type TimeBlockLabel = 'BREAKFAST' | 'MORNING' | 'LUNCH' | 'AFTERNOON' | 'DINNER' | 'EVENING' | 'SNACKS' | 'NIGHT';
 export type ActivityType = 'ADR' | 'RIDE' | 'SHOW' | 'NOTE' | 'OTHER';
 
 export interface Trip {
@@ -9,6 +9,11 @@ export interface Trip {
   endDate: string;
   homeResortOrHotel?: string;
   budgetTarget?: number;
+  logistics?: TripLogistics;
+  checklist?: TripChecklist;
+  diningPlan?: TripDiningPlan;
+  usingDvc?: boolean;
+  dvcSummary?: TripDvcSummary;
   parkDays: TripDay[];
 }
 
@@ -37,6 +42,7 @@ export interface Activity {
   startTime?: string;
   endTime?: string;
   isMustDo?: boolean;
+  useGeniePlus?: boolean;
   notes?: string;
 }
 
@@ -75,4 +81,38 @@ export interface DvcScenario {
   description?: string;
   totalPointsUsed: number;
   targetYears: Record<string, number>;
+}
+
+export interface TripFlightDetails {
+  airline?: string;
+  flightNumber?: string;
+  departureAirport?: string;
+  departureTime?: string;
+  arrivalAirport?: string;
+  arrivalTime?: string;
+}
+
+export interface TripLogistics {
+  departureFlight?: TripFlightDetails;
+  returnFlight?: TripFlightDetails;
+  groundTransport?: string;
+}
+
+export interface TripChecklist {
+  ticketsPurchased?: boolean;
+  parkReservationsMade?: boolean;
+  genieStrategyDecided?: boolean;
+  magicBandsReady?: boolean;
+  memoryMaker?: boolean;
+}
+
+export interface TripDiningPlan {
+  enabled: boolean;
+  totalCredits: number;
+}
+
+export interface TripDvcSummary {
+  contractNickname: string;
+  useYear: string;
+  pointsAllocated: number;
 }

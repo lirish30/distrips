@@ -1,11 +1,15 @@
 import { ActivityType, BudgetItem, DvcContract, DvcScenario, DvcUseYearSummary, TimeBlockLabel, Trip } from '../types';
 
 const parks = ['MK', 'EPCOT', 'HS', 'AK'] as const;
-const blocks: TimeBlockLabel[] = ['MORNING', 'AFTERNOON', 'EVENING'];
+const blocks: TimeBlockLabel[] = ['BREAKFAST', 'MORNING', 'LUNCH', 'AFTERNOON', 'DINNER', 'EVENING', 'SNACKS'];
 const activitiesPerBlock: ActivityType[][] = [
-  ['ADR', 'RIDE'],
+  ['ADR'],
+  ['RIDE'],
+  ['ADR'],
   ['RIDE', 'SHOW'],
-  ['NOTE']
+  ['ADR'],
+  ['NOTE'],
+  []
 ];
 
 const makeTrip = (idx: number): Trip => {
@@ -28,10 +32,31 @@ const makeTrip = (idx: number): Trip => {
         timeBlockId: `tb-${idx}-${dayIdx}-${blockIdx}`,
         type,
         name: `${type} placeholder ${actIdx + 1}`,
-        startTime: blockIdx === 0 ? '08:00' : blockIdx === 1 ? '13:15' : undefined,
-        endTime: blockIdx === 0 ? '09:30' : blockIdx === 1 ? '15:00' : undefined,
-        notes: blockIdx === 2 ? 'Wind down with fireworks viewing' : undefined,
-        isMustDo: type === 'RIDE'
+        startTime:
+          blockIdx === 0
+            ? '08:00'
+            : blockIdx === 1
+              ? '09:30'
+              : blockIdx === 2
+                ? '12:15'
+                : blockIdx === 3
+                  ? '14:00'
+                  : blockIdx === 4
+                    ? '18:00'
+                    : blockIdx === 5
+                      ? '20:30'
+                      : undefined,
+        endTime:
+          blockIdx === 0
+            ? '09:00'
+            : blockIdx === 2
+              ? '13:30'
+              : blockIdx === 4
+                ? '19:30'
+                : undefined,
+        notes: blockIdx === 5 ? 'Wind down with fireworks viewing' : undefined,
+        isMustDo: type === 'RIDE',
+        useGeniePlus: type === 'RIDE'
       }))
     }));
 
@@ -52,11 +77,57 @@ const makeTrip = (idx: number): Trip => {
     endDate: formatDate(end),
     homeResortOrHotel: idx === 0 ? 'Pop Century' : 'Saratoga Springs',
     budgetTarget: idx === 0 ? 4200 : 3800,
+    logistics: {
+      departureFlight: {
+        airline: idx === 0 ? 'Delta' : 'JetBlue',
+        flightNumber: idx === 0 ? 'DL 1782' : 'B6 612',
+        departureAirport: 'BOS',
+        departureTime: `${formatDate(start)}T07:25`,
+        arrivalAirport: 'MCO',
+        arrivalTime: `${formatDate(start)}T10:35`
+      },
+      returnFlight: {
+        airline: idx === 0 ? 'Delta' : 'JetBlue',
+        flightNumber: idx === 0 ? 'DL 1905' : 'B6 623',
+        departureAirport: 'MCO',
+        departureTime: `${formatDate(end)}T18:45`,
+        arrivalAirport: 'BOS',
+        arrivalTime: `${formatDate(end)}T22:05`
+      },
+      groundTransport: idx === 0 ? 'Rideshare' : 'Rental Car'
+    },
+    checklist: {
+      ticketsPurchased: true,
+      parkReservationsMade: idx === 0,
+      genieStrategyDecided: idx === 0,
+      magicBandsReady: idx === 0 ? false : true,
+      memoryMaker: false
+    },
+    diningPlan: idx === 0 ? { enabled: true, totalCredits: 12 } : { enabled: false, totalCredits: 0 },
+    usingDvc: idx === 0,
+    dvcSummary:
+      idx === 0
+        ? {
+            contractNickname: 'Main Contract',
+            useYear: '2025 April',
+            pointsAllocated: 118
+          }
+        : undefined,
     parkDays
   };
 };
 
 export const trips: Trip[] = [makeTrip(0), makeTrip(1)];
+export const dvcUseYearTrips = trips
+  .filter((trip) => trip.usingDvc && trip.dvcSummary)
+  .map((trip) => ({
+    tripId: trip.id,
+    tripName: trip.name,
+    startDate: trip.startDate,
+    endDate: trip.endDate,
+    pointsUsed: trip.dvcSummary?.pointsAllocated ?? 0,
+    useYear: trip.dvcSummary?.useYear ?? 'Unknown'
+  }));
 
 export const budgetItems: BudgetItem[] = [
   {

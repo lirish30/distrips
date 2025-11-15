@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { budgetItems, trips } from '../data/sampleData';
+import { formatDate } from '../utils/date';
 import '../styles/page-sections.css';
 
 const TripBudgetPage = () => {
@@ -53,7 +54,7 @@ const TripBudgetPage = () => {
           <tbody>
             {items.map((item) => (
               <tr key={item.id}>
-                <td>{item.date ?? 'Trip total'}</td>
+                <td>{item.date ? formatDate(item.date) : 'Trip total'}</td>
                 <td>{item.category}</td>
                 <td>{item.description ?? '—'}</td>
                 <td>${item.amount.toFixed(2)}</td>

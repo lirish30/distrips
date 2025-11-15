@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  min-height: 100vh;
 }
 
 .brand {
@@ -26,6 +27,21 @@
   gap: 0.35rem;
 }
 
+.trips-section {
+  flex: 1;
+  min-height: 0;
+}
+
+.trip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
 .sidebar-heading {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
@@ -38,6 +54,25 @@
   color: rgba(248, 249, 251, 0.8);
   padding: 0.35rem 0.25rem;
   border-radius: 0.35rem;
+}
+
+.trip-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 0.5rem 0.45rem;
+  border-radius: 0.6rem;
+}
+
+.trip-link__name {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.trip-link__dates {
+  font-size: 0.75rem;
+  color: rgba(248, 249, 251, 0.65);
 }
 
 .nav-link.active,
@@ -65,11 +100,10 @@
   justify-content: space-between;
 }
 
-.page-path {
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: #6b7280;
-  letter-spacing: 0.08em;
+.page-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .primary {
@@ -80,6 +114,16 @@
   border-radius: 999px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.create-trip-button {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  border-radius: 0.75rem;
+  display: inline-flex;
 }
 
 .page-content {
