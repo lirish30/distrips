@@ -1,0 +1,62 @@
+.ds-button {
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: none;
+}
+
+.ds-button--md {
+  padding: 0.75rem 1.3rem;
+  font-size: 1rem;
+}
+
+.ds-button--sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.ds-button--full {
+  width: 100%;
+}
+
+.ds-button--primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(110, 73, 246, 0.25);
+}
+
+.ds-button--primary:hover {
+  transform: translateY(-1px);
+}
+
+.ds-button--secondary {
+  background: rgba(30, 202, 211, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(30, 202, 211, 0.5);
+}
+
+.ds-button--ghost {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.ds-button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.ds-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}

@@ -51,6 +51,7 @@
   gap: 0.75rem;
 }
 
+
 .trip-dashboard {
   display: flex;
   flex-direction: column;
@@ -967,4 +968,1160 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #6b7280;
+}
+
+.trips-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.trips-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.trips-hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.trips-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.trip-card__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.trip-board__placeholder {
+  color: var(--color-muted);
+}
+
+.trips-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr);
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+.trips-board__left {
+  min-width: 0;
+}
+
+.trips-cover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.trips-board__right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.trip-cover-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: pointer;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.trip-cover-card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.trip-cover-card.is-selected {
+  border-color: rgba(110, 73, 246, 0.8);
+  box-shadow: var(--shadow-card);
+}
+
+.trip-cover-card__artwork {
+  height: 180px;
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+}
+
+.trip-cover-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.trip-cover-card__body h2 {
+  margin: 0;
+}
+
+.trip-cover-card__body p {
+  margin: 0;
+}
+
+.trip-cover-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.trip-cover-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.trip-cover-card__countdown {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.trip-cover-card__tag {
+  border-radius: var(--radius-pill);
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.trips-calendar-card,
+.trips-next-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.trips-calendar-card__header,
+.trips-next-steps__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.trips-calendar-card__month {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.mini-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mini-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+.mini-calendar__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mini-calendar__row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.mini-calendar__day {
+  border-radius: var(--radius-sm);
+  text-align: center;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.mini-calendar__day.is-muted {
+  opacity: 0.5;
+}
+
+.mini-calendar__day.is-in-range {
+  background: rgba(110, 73, 246, 0.15);
+  color: var(--color-primary);
+}
+
+.mini-calendar__day.is-edge {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.trips-next-steps__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.trips-next-steps__list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+.trips-next-steps__list li.is-done {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.trips-next-steps__status {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.trips-next-steps__list li.is-done .trips-next-steps__status {
+  background: rgba(34, 197, 94, 0.2);
+  color: #15803d;
+}
+
+@media (max-width: 1100px) {
+  .trips-board {
+    grid-template-columns: 1fr;
+  }
+
+  .trips-board__right {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .trips-board__right > * {
+    flex: 1 1 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .trips-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .trips-board__right {
+    flex-direction: column;
+  }
+}
+
+.trip-dashboard__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trip-dashboard__panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.trip-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.trip-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.trip-panel__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.trip-panel__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.trip-hero-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-hero-card__layout {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.trip-hero-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trip-hero-card__media {
+  flex: 0 0 320px;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.trip-hero-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.trip-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.trip-hero__countdown {
+  background: rgba(255, 215, 122, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.trip-hero__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.trip-hero__dates {
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+
+.trip-hero__summary {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.trip-hero__summary div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.trip-hero__summary span {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.trip-hero__summary strong {
+  font-size: 1.15rem;
+}
+
+.trip-hero__icon-button {
+  border: none;
+  background: var(--color-surface);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.trip-dashboard__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) minmax(0, 0.9fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.trip-dashboard__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.trip-panel__note {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0.5rem 0 1rem;
+}
+
+.text-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.lodging-summary-card__details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.lodging-summary-card__details dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.lodging-summary-card__details dd {
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+}
+
+.lodging-summary-card__actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+}
+
+.reservation-list--compact {
+  gap: 0.75rem;
+}
+
+.reservation-list--compact li {
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.reservation-list--compact .empty-state {
+  color: var(--color-muted);
+  text-align: center;
+  width: 100%;
+}
+
+.reservation-list__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.reservation-tag {
+  border-radius: var(--radius-pill);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.08);
+  color: var(--color-text);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.reservation-tag[data-park='MK'] {
+  background: rgba(249, 115, 22, 0.18);
+  color: #b45309;
+}
+
+.reservation-tag[data-park='EPCOT'] {
+  background: rgba(59, 130, 246, 0.18);
+  color: #1d4ed8;
+}
+
+.reservation-tag[data-park='HS'] {
+  background: rgba(236, 72, 153, 0.2);
+  color: #be185d;
+}
+
+.reservation-tag[data-park='AK'] {
+  background: rgba(16, 185, 129, 0.2);
+  color: #047857;
+}
+
+.reservation-tag[data-park='OFFSITE'],
+.reservation-tag[data-park='UNSET'],
+.reservation-tag[data-park='NONE'] {
+  background: rgba(148, 163, 184, 0.2);
+  color: #475569;
+}
+
+.flight-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.flight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.flight-card--empty {
+  border-style: dashed;
+}
+
+.flight-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flight-card__label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.flight-card__direction {
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.flight-card__body {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.flight-card__segment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.flight-card__segment strong {
+  font-size: 1.1rem;
+}
+
+.flight-card__airport {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.flight-card__divider {
+  font-size: 1.5rem;
+  color: var(--color-muted);
+}
+
+.flight-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flight-card__confirmation {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.flight-passengers {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.flight-passengers__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.flight-passengers__placeholder {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.ground-transport-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.ground-transport-field span {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.ground-transport-field select {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+}
+
+.flights-modal {
+  width: min(860px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flights-modal__content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.flights-modal__list ul {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.flights-modal__list button {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.flights-modal__list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flights-modal__form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.flights-modal__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.flights-modal__form input,
+.flights-modal__form select {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+}
+
+.flights-modal__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.family-mode {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.family-mode__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.family-calendar-picker__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.family-filters h3 {
+  margin-top: 0;
+}
+
+.family-filter-group {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.family-filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.family-mode__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.family-mode__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.family-mode__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.view-toggle button {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-toggle button.is-active {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.family-mode__schedule {
+  min-height: 420px;
+}
+
+.family-daily-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.family-event-card {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  background: #fff;
+}
+
+.family-event-card__time {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.family-weekly-grid {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.family-weekly-grid__times {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.family-weekly-grid__columns {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.family-weekly-column {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 520px;
+}
+
+.family-weekly-column header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.family-weekly-column__body {
+  position: relative;
+  flex: 1;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.family-calendar__event {
+  position: absolute;
+  left: 0.2rem;
+  right: 0.2rem;
+  border-radius: var(--radius-md);
+  padding: 0.3rem 0.45rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+
+.family-calendar__event span {
+  font-size: 0.75rem;
+}
+
+.family-calendar__event strong {
+  font-size: 0.85rem;
+}
+
+.family-mode__sidebar .mini-calendar__day {
+  border: none;
+}
+
+.family-mode__sidebar .mini-calendar__day.is-in-range {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.family-event-modal {
+  width: min(640px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.family-event-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.family-event-modal__grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 600;
+}
+
+.family-event-modal__grid input,
+.family-event-modal__grid select,
+.family-event-modal__grid textarea {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+}
+
+.family-event-modal__notes {
+  grid-column: 1 / -1;
+}
+
+.family-event-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1100px) {
+  .family-mode {
+    grid-template-columns: 1fr;
+  }
+
+  .family-mode__sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .family-mode__sidebar > * {
+    flex: 1 1 280px;
+  }
+}
+
+@media (max-width: 720px) {
+  .family-weekly-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .family-weekly-grid__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.flights-summary-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flights-summary-card__label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.flights-summary-card__value {
+  font-weight: 700;
+  margin: 0.25rem 0;
+}
+
+.flights-summary-card__meta {
+  margin: 0.1rem 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.travel-glance-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.travel-glance-card__list dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+.travel-glance-card__list dd {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+
+.share-modal,
+.lodging-modal {
+  width: min(560px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .trip-dashboard__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trip-dashboard__column--right {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 800px) {
+  .trip-dashboard__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-hero-card__layout {
+    flex-direction: column;
+  }
+}
+
+.trip-dashboard__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.trip-calendar-card .calendar {
+  border: none;
+  box-shadow: none;
+}
+
+.calendar {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  overflow: visible;
+  position: relative;
+}
+
+.calendar__header,
+.calendar__row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.calendar__header {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.calendar__header span {
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.calendar__cell {
+  min-height: 120px;
+  padding: 0.75rem;
+  border-right: 1px solid rgba(15, 23, 42, 0.05);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.calendar__row .calendar__cell:last-child {
+  border-right: none;
+}
+
+.calendar__cell.is-clickable {
+  cursor: pointer;
+}
+
+.calendar__cell header,
+.calendar__cell footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.calendar__cell footer a {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.calendar__cell--empty {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.calendar__marker {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  font-weight: 600;
+}
+
+.calendar-popover {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0.4rem);
+  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-soft);
+  padding: 0.6rem 0.75rem;
+  width: 220px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.calendar-popover p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.calendar-popover ul {
+  list-style: none;
+  margin: 0.45rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.calendar-popover li {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.calendar-popover li span {
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.reservation-modal {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+.reservation-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+@media (max-width: 1100px) {
+  .trip-dashboard__wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-hero-card__layout {
+    flex-direction: column;
+  }
+
+  .trip-dashboard__aside {
+    flex-direction: column;
+  }
 }

@@ -84,15 +84,20 @@ export interface DvcScenario {
 }
 
 export interface TripFlightDetails {
+  id?: string;
+  direction?: 'OUTBOUND' | 'INBOUND';
   airline?: string;
   flightNumber?: string;
   departureAirport?: string;
   departureTime?: string;
   arrivalAirport?: string;
   arrivalTime?: string;
+  confirmationCode?: string;
+  travelers?: string[];
 }
 
 export interface TripLogistics {
+  flights?: TripFlightDetails[];
   departureFlight?: TripFlightDetails;
   returnFlight?: TripFlightDetails;
   groundTransport?: string;

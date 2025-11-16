@@ -1,0 +1,275 @@
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: transparent;
+}
+
+.app-shell__sidebar {
+  background: linear-gradient(180deg, #0f1225, #1b1c2d);
+  color: #f8f7fb;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+.app-shell__brand {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.app-shell__brand strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+}
+
+.app-shell__brand p {
+  margin: 0.1rem 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.app-shell__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.app-shell__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+}
+
+.app-shell__nav-link:hover,
+.app-shell__nav-link.is-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.app-shell__nav-icon {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+.app-shell__trips {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 0;
+}
+
+.app-shell__trip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.trip-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0.9rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  color: #fff;
+  gap: 0.75rem;
+}
+
+.trip-pill__name {
+  font-weight: 600;
+}
+
+.trip-pill__dates {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.trip-pill.is-active {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.app-shell__footer {
+  margin-top: auto;
+}
+
+.app-shell__logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.app-shell__logout.is-active,
+.app-shell__logout:hover {
+  color: #fff;
+}
+
+.app-shell__main {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px);
+  padding: 2.5rem 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-shell__eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  margin: 0 0 0.35rem;
+}
+
+.app-shell__topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-shell__search {
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-muted);
+}
+
+.app-shell__search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 220px;
+}
+
+.app-shell__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #1b1c2d;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.app-shell__content {
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  width: min(1200px, 100%);
+}
+
+.app-shell__nav-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #0f1225;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.app-shell__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.app-shell__backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 1040px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell__sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 260px;
+    transform: translateX(-100%);
+    z-index: 40;
+    border-top-right-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+  }
+
+  .app-shell.nav-open .app-shell__sidebar {
+    transform: translateX(0);
+  }
+
+  .app-shell__nav-toggle {
+    display: inline-flex;
+  }
+
+  .app-shell__main {
+    padding: 4.5rem 1rem 2rem;
+  }
+
+  .app-shell__content {
+    width: 100%;
+  }
+
+  .app-shell__topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-shell__topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .app-shell__search {
+    flex: 1;
+    width: 100%;
+  }
+
+  .app-shell__search input {
+    width: 100%;
+  }
+}

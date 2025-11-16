@@ -1,0 +1,15 @@
+.ds-card {
+  background: var(--color-surface);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  width: 100%;
+}
+
+.ds-card--tinted {
+  background: linear-gradient(135deg, rgba(110, 73, 246, 0.08), rgba(255, 126, 179, 0.08));
+  border-color: transparent;
+}
+
+.ds-card--outline {
+  border: 1px dashed rgba(71, 84, 103, 0.5);
+  background: transparent;
+}

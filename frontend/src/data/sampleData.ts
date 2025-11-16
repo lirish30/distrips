@@ -1,4 +1,4 @@
-import { ActivityType, BudgetItem, DvcContract, DvcScenario, DvcUseYear, TimeBlockLabel, Trip } from '../types';
+import { ActivityType, BudgetItem, DvcContract, DvcScenario, DvcUseYear, TimeBlockLabel, Trip, TripFlightDetails } from '../types';
 
 const parks = ['MK', 'EPCOT', 'HS', 'AK'] as const;
 const blocks: TimeBlockLabel[] = ['BREAKFAST', 'MORNING', 'LUNCH', 'AFTERNOON', 'DINNER', 'EVENING', 'SNACKS'];
@@ -70,6 +70,31 @@ const makeTrip = (idx: number): Trip => {
     };
   });
 
+  const outboundFlight: TripFlightDetails = {
+    id: `flight-${idx}-out`,
+    direction: 'OUTBOUND' as const,
+    airline: idx === 0 ? 'Delta' : 'JetBlue',
+    flightNumber: idx === 0 ? 'DL 1782' : 'B6 612',
+    departureAirport: 'BOS',
+    departureTime: `${formatDate(start)}T07:25`,
+    arrivalAirport: 'MCO',
+    arrivalTime: `${formatDate(start)}T10:35`,
+    confirmationCode: idx === 0 ? 'DL-OUT-1782' : 'B6-612',
+    travelers: idx === 0 ? ['Logan Irish', 'Ava Irish'] : ['Explorers Crew']
+  };
+  const inboundFlight: TripFlightDetails = {
+    id: `flight-${idx}-in`,
+    direction: 'INBOUND' as const,
+    airline: idx === 0 ? 'Delta' : 'JetBlue',
+    flightNumber: idx === 0 ? 'DL 1905' : 'B6 623',
+    departureAirport: 'MCO',
+    departureTime: `${formatDate(end)}T18:45`,
+    arrivalAirport: 'BOS',
+    arrivalTime: `${formatDate(end)}T22:05`,
+    confirmationCode: idx === 0 ? 'DL-RET-1905' : 'B6-623',
+    travelers: idx === 0 ? ['Logan Irish', 'Ava Irish'] : ['Explorers Crew']
+  };
+
   return {
     id: `trip-${idx}`,
     name: idx === 0 ? 'Fall 2026 Family Trip' : `Explorers ${2025 + idx}`,
@@ -78,22 +103,9 @@ const makeTrip = (idx: number): Trip => {
     homeResortOrHotel: idx === 0 ? 'Pop Century' : 'Saratoga Springs',
     budgetTarget: idx === 0 ? 4200 : 3800,
     logistics: {
-      departureFlight: {
-        airline: idx === 0 ? 'Delta' : 'JetBlue',
-        flightNumber: idx === 0 ? 'DL 1782' : 'B6 612',
-        departureAirport: 'BOS',
-        departureTime: `${formatDate(start)}T07:25`,
-        arrivalAirport: 'MCO',
-        arrivalTime: `${formatDate(start)}T10:35`
-      },
-      returnFlight: {
-        airline: idx === 0 ? 'Delta' : 'JetBlue',
-        flightNumber: idx === 0 ? 'DL 1905' : 'B6 623',
-        departureAirport: 'MCO',
-        departureTime: `${formatDate(end)}T18:45`,
-        arrivalAirport: 'BOS',
-        arrivalTime: `${formatDate(end)}T22:05`
-      },
+      flights: [outboundFlight, inboundFlight],
+      departureFlight: outboundFlight,
+      returnFlight: inboundFlight,
       groundTransport: idx === 0 ? 'Rideshare' : 'Rental Car'
     },
     checklist: {
