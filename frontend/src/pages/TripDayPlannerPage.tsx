@@ -383,7 +383,7 @@ const TripDayPlannerPage = () => {
                       + Note
                     </button>
                   </div>
-                  <ul className="reservation-list" style={{ marginTop: '0.5rem' }} role="list" aria-label={`${display} activities`}>
+                  <ul className="reservation-list" style={{ marginTop: '0.5rem' }} aria-label={`${display} activities`}>
                     {block.activities.map((activity) => {
                       const displayType = activity.type === 'ADR' ? 'Dining' : activity.type;
                       return (

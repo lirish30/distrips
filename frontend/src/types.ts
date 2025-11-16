@@ -65,7 +65,7 @@ export interface DvcContract {
   nickname?: string;
 }
 
-export interface DvcUseYearSummary {
+export interface DvcUseYear {
   year: string;
   contractId: string;
   startingPoints: number;

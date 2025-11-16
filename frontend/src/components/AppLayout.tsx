@@ -107,7 +107,19 @@ const AppLayout = () => {
           </NavLink>
         </div>
       </aside>
-      <div className={`nav-overlay ${mobileNavOpen ? 'visible' : ''}`} onClick={closeNav} aria-hidden={!mobileNavOpen} />
+      <button
+        type="button"
+        className={`nav-overlay ${mobileNavOpen ? 'visible' : ''}`}
+        aria-label="Close navigation"
+        aria-hidden={!mobileNavOpen}
+        tabIndex={mobileNavOpen ? 0 : -1}
+        onClick={closeNav}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            closeNav();
+          }
+        }}
+      />
       <main className="main-panel">
         <header className="top-bar">
           <div className="page-title">

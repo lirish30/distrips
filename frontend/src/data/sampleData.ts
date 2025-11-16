@@ -1,4 +1,4 @@
-import { ActivityType, BudgetItem, DvcContract, DvcScenario, DvcUseYearSummary, TimeBlockLabel, Trip } from '../types';
+import { ActivityType, BudgetItem, DvcContract, DvcScenario, DvcUseYear, TimeBlockLabel, Trip } from '../types';
 
 const parks = ['MK', 'EPCOT', 'HS', 'AK'] as const;
 const blocks: TimeBlockLabel[] = ['BREAKFAST', 'MORNING', 'LUNCH', 'AFTERNOON', 'DINNER', 'EVENING', 'SNACKS'];
@@ -167,7 +167,7 @@ export const dvcContracts: DvcContract[] = [
   }
 ];
 
-export const dvcUseYears: DvcUseYearSummary[] = [
+export const dvcUseYears: DvcUseYear[] = [
   {
     year: '2025',
     contractId: 'contract-1',
